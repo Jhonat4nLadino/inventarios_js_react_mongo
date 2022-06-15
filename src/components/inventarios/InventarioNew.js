@@ -96,7 +96,6 @@ export const InventarioNew = ({ handleModal, listarInventarios }) => {
             },
         }
         console.log(inventario);
-
         try {
             Swal.fire({
                 allowOutsideClick: false,

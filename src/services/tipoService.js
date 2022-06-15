@@ -8,6 +8,14 @@ const getTipos = () => {
     });
 }
 
+const getTipoPorId = (tipoId) => {
+    return axiosInstance.get(`tipo-equipo/${tipoId}`, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+}
+
 const createTipo = (data) => {
     return axiosInstance.post('tipo-equipo', data, {
         headers: {
@@ -24,8 +32,18 @@ const editTipo = (TipoEquipoId, data) => {
     });
 }
 
+const deleteTipo = (tipoId) => {
+    return axiosInstance.delete(`tipo-equipo/${tipoId}`, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+}
+
 export {
     getTipos,
+    getTipoPorId,
     createTipo,
-    editTipo
+    editTipo,
+    deleteTipo
 }

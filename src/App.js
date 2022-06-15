@@ -2,15 +2,20 @@
 
 // Se importa react en la cabecera
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import { Header } from './components/ui/Header';
-import { InventarioView } from "./components/inventarios/InventarioView";
-import { UsuarioView } from "./components/usuarios/UsuarioView";
-import { MarcaView } from "./components/marcas/MarcaView";
 import { EstadoView } from "./components/estados/EstadoView";
+import { InventarioView } from "./components/inventarios/InventarioView";
+import { MarcaView } from "./components/marcas/MarcaView";
 import { TipoView } from "./components/tipos/TipoView";
+import { UsuarioView } from "./components/usuarios/UsuarioView";
+import { EstadoUpdate } from "./components/estados/EstadoUpdate";
 import { InventarioUpdate } from "./components/inventarios/InventarioUpdate";
+import { MarcaUpdate } from "./components/marcas/MarcaUpdate";
+import { TipoUpdate } from "./components/tipos/TipoUpdate";
+import { UsuarioUpdate } from "./components/usuarios/UsuarioUpdate";
+
 
 //1. Se define el compartamiento de nuestro componente
 //1.1 Se puede imprimir directamente desde nuestro componente
@@ -20,12 +25,16 @@ const App = () => {
     return <Router>
         <Header />
         <Switch>
-            <Route exact path="/" component={InventarioView} />
-            <Route exact path="/usuarios" component={UsuarioView} />
-            <Route exact path="/marcas" component={MarcaView} />
             <Route exact path="/estados" component={EstadoView} />
+            <Route exact path="/" component={InventarioView} />
+            <Route exact path="/marcas" component={MarcaView} />
             <Route exact path="/tipos" component={TipoView} />
+            <Route exact path="/usuarios" component={UsuarioView} />
+            <Route exact path="/estado-equipo/edit/:estadoId" component={EstadoUpdate} />
             <Route exact path="/inventario/edit/:inventarioId" component={InventarioUpdate} />
+            <Route exact path="/marca/edit/:marcaId" component={MarcaUpdate} />
+            <Route exact path="/usuario/edit/:usuarioId" component={UsuarioUpdate} />
+            <Route exact path="/tipo-equipo/edit/:tipoId" component={TipoUpdate} />
             <Redirect to='/' />
         </Switch>
     </Router>;

@@ -8,6 +8,14 @@ const getMarcas = () => {
     });
 }
 
+const getMarcaPorId = (marcaId) => {
+    return axiosInstance.get(`marca/${marcaId}`, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+}
+
 const createMarca = (data) => {
     return axiosInstance.post('marca', data, {
         headers: {
@@ -24,8 +32,18 @@ const editMarca = (marcaId, data) => {
     });
 }
 
+const deleteMarca = (marcaId) => {
+    return axiosInstance.delete(`marca/${marcaId}`, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+}
+
 export {
     getMarcas,
+    getMarcaPorId,
     createMarca,
-    editMarca
+    editMarca,
+    deleteMarca
 }

@@ -8,6 +8,14 @@ const getUsuarios = () => {
     });
 }
 
+const getUsuarioPorId = (usuarioId) => {
+    return axiosInstance.get(`usuario/${usuarioId}`, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+}
+
 const createUsuario = (data) => {
     return axiosInstance.post('usuario', data, {
         headers: {
@@ -24,8 +32,18 @@ const editUsuario = (usuarioId, data) => {
     });
 }
 
+const deleteUsuario = (usuarioId) => {
+    return axiosInstance.delete(`usuario/${usuarioId}`, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+}
+
 export {
     getUsuarios,
+    getUsuarioPorId,
     createUsuario,
-    editUsuario
+    editUsuario,
+    deleteUsuario
 }

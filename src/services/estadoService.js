@@ -8,6 +8,14 @@ const getEstados = () =>{
     });
 }
 
+const getEstadoPorId = (estadoId) => {
+    return axiosInstance.get(`estado-equipo/${estadoId}`, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+}
+
 const createEstado = (data) =>{
     return axiosInstance.post('estado-equipo', data, {
         headers:{
@@ -24,8 +32,18 @@ const editEstado = (estadoEquipoId, data) =>{
     });
 }
 
+const deleteEstado = (estadoId) => {
+    return axiosInstance.delete(`estado-equipo/${estadoId}`, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+}
+
 export{
     getEstados,
+    getEstadoPorId,
     createEstado,
-    editEstado
+    editEstado,
+    deleteEstado
 }

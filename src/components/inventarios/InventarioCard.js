@@ -17,7 +17,7 @@ export const InventarioCard = (props) => {
                     <p className="card-text">{`Color: ${inventario.color}`}</p>
                     <p className="card-text">Descripción: {inventario.descripcion}</p>
                     <p className="card-text">
-                        <Link to={(`inventario/edit/${inventario._id}`)}>Ver más...</Link>
+                        <Link to={`/inventario/edit/${inventario._id}`}>Ver más...</Link>
                     </p>
                 </div>
             </div>
